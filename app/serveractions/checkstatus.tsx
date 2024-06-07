@@ -1,8 +1,7 @@
-import { createClient } from "@/utils/supabase/server";
-
+"use server";
 import { redirect } from "next/navigation";
-
-export default async function ProtectedPage() {
+import { createClient } from "@/utils/supabase/server";
+export default async function checkstatus() {
   const supabase = createClient();
 
   const {
@@ -12,10 +11,4 @@ export default async function ProtectedPage() {
   if (!user) {
     return redirect("/login");
   }
-
-  return (
-    <div>
-      <p>protected</p>
-    </div>
-  );
 }
